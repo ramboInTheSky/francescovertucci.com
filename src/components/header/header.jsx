@@ -8,12 +8,23 @@ import Measure from 'react-measure';
 
 
 const styles = {
+  links: {
+    width: 'auto',
+    // backgroundColor: '#000',
+    lineHeight: '2.5rem',
+    paddingLeft: 10,
+  },
   list: {
     width: 250,
+    backgroundColor: '#000',
+    lineHeight: '2.5rem',
+    paddingLeft: 10,
+    display: 'flex',
+    flexDirection: 'column',
   },
-  fullList: {
-    width: 'auto',
-  },
+  button: {
+    color: 'hotpink'
+  }
 };
 
 class Header extends React.Component {
@@ -41,19 +52,15 @@ class Header extends React.Component {
     const toggleDrawer = this.toggleDrawer.bind(this)
 
     const sideList = (
-      <div className={classes.list}>
-        {/*<List></List>
-        <Divider />
-        <List></List>*/}
-      </div>
-    );
-
-    const fullList = (
-      <div className={classes.fullList}>
-        {/*<List></List>
-        <Divider />
-        <List></List>*/}
-      </div>
+      <div className={width <= 480 ? classes.list : classes.links}>
+        <a href="#" className="link">Biography</a>
+        <a href="#" className=
+          {`link ${filter == 'illustrations' ? 'selected' : ''}`} onClick={() => filterElements('illustrations')}> Illustrations</a>
+        <a href="#" className=
+          {`link ${filter == 'performances' ? 'selected' : ''}`} onClick={() => filterElements('performances')}> Performances</a>
+        <a href="#" className=
+          {`link ${filter == 'art' ? 'selected' : ''}`} onClick={() => filterElements('art')}> Art Installations</a>
+      </div >
     );
 
     return (
@@ -67,8 +74,9 @@ class Header extends React.Component {
             if (width <= 480) {
               return (
                 <header className="App-header" ref={measureRef}>
+
                   <h1 className="App-title" > Francesco Vertucci</h1>
-                  <Button onClick={toggleDrawer(true)}>Menu</Button>
+                  <Button className={classes.button} onClick={toggleDrawer(true)}>Menu</Button>
                   <Drawer open={this.state.open} onClose={toggleDrawer(false)}>
                     <div
                       tabIndex={0}
@@ -82,18 +90,12 @@ class Header extends React.Component {
                 </header>
               )
             }
-            if (width > 480) {
+            else {
               return (
 
                 <header className="App-header" ref={measureRef}>
                   <h1 className="App-title" > Francesco Vertucci</h1>
-                  <a href="#" className="link"> Read Bio</a>
-                  <a href="#" className=
-                    {`link ${filter == 'illustrations' ? 'selected' : ''}`} onClick={() => filterElements('illustrations')}> Illustrations</a>
-                  <a href="#" className=
-                    {`link ${filter == 'performances' ? 'selected' : ''}`} onClick={() => filterElements('performances')}> Performances</a>
-                  <a href="#" className=
-                    {`link ${filter == 'art' ? 'selected' : ''}`} onClick={() => filterElements('art')}> Art Installations</a>
+                  {sideList}
                 </header>
               )
             }

@@ -26,7 +26,7 @@ class App extends Component {
     const filterElements = this.filterElements.bind(this)
     return (
       <div className="App" >
-        <Header filter={filter} filterElements={() => filterElements()} />
+        <Header filter={filter} filterElements={filterElements} />
         <section className="App-content">
           <Tiles images={images.filter((image) =>
             image.section == filter
