@@ -42,8 +42,13 @@
 }
 
 html {
-    line-height: 0.2rem;
     font-size: 16px;
+}
+
+body {
+    font-family: 'League Gothic';
+    line-height: 0.2rem;
+    font-weight: 400;
 }
 
 a {
@@ -51,17 +56,14 @@ a {
     color: white;
 }
 
-.App {
-    text-align: center;
-    font-family: 'League Gothic';
-}
 
-.App-logo {
+/*.App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 60px;
-}
+}*/
 
-.App-header {
+
+/*.App-header {
     background-color: #222;
     height: 40px;
     display: flex;
@@ -75,23 +77,21 @@ a {
     left: 0;
     right: 0;
     border-bottom: 3px solid white;
-}
+}*/
 
 .App-title {
     font-size: 1.8rem;
+    font-weight: 400;
 }
 
-.App-content {
-    padding-top: 50px;
-}
 
-.link {
+/*.link {
     line-height: 2.5rem;
     padding-left: 10px;
-}
+}*/
 
 .selected {
-    color: hotpink;
+    color: #cc2f2f !important;
 }
 
 @keyframes App-logo-spin {

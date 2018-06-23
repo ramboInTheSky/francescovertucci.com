@@ -1,45 +1,40 @@
 import React from 'react';
 import Gallery from 'react-photo-gallery';
-import Measure from 'react-measure';
+import { DEVICES } from './constants'
 
-
+const determineColumns = (width) => {
+  let columns
+  if (width <= DEVICES.mobile) {
+    return 1;
+  }
+  if (width <= DEVICES.tablet) {
+    return 1;
+  }
+  if (width <= DEVICES.desktop) {
+    return 2;
+  }
+  if (width <= DEVICES.retina) {
+    return 3;
+  }
+  if (width <= DEVICES.projector) {
+    return 4;
+  }
+}
 
 export default class Tiles extends React.Component {
   constructor() {
     super();
-    this.state = { width: -1 };
+    this.state = { columns: 4 };
   }
-  render() {
-    const { width } = this.state;
-    const { images } = this.props;
-    let columns = 1;
 
-    return (
-      <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
-        {
-          ({ measureRef }) => {
-            if (width < 1) {
-              return <div ref={measureRef}></div>;
-            }
-            if (width >= 480) {
-              columns = 2;
-            }
-            if (width >= 900) {
-              columns = 2;
-            }
-            if (width >= 1024) {
-              columns = 2;
-            }
-            if (width >= 1200) {
-              columns = 3;
-            }
-            if (width >= 1800) {
-              columns = 4;
-            }
-            return <div ref={measureRef}><Gallery photos={images} columns={columns} /></div>
-          }
-        }
-      </Measure>
-    );
+  gotoImg(e, item) {
+    document.location = item.photo.src
   }
+
+  render() {
+    const { images, viewportWidth } = this.props;
+    const columns = determineColumns(viewportWidth)
+    return <Gallery photos={images} columns={columns} onClick={this.gotoImg.bind(this)} />
+  }
+
 }
