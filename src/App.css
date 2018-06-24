@@ -1,52 +1,52 @@
 /* Regular */
 
-@font-face {
+/*@font-face {
     font-family: 'League Gothic';
     src: url('./webfonts/leaguegothic-regular-webfont.eot');
     src: url('./webfonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'), url('./webfonts/leaguegothic-regular-webfont.woff') format('woff'), url('./webfonts/leaguegothic-regular-webfont.ttf') format('truetype'), url('./webfonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 
 /* Italic */
 
-@font-face {
+/*@font-face {
     font-family: 'League Gothic';
     src: url('./webfonts/leaguegothic-italic-webfont.eot');
     src: url('./webfonts/leaguegothic-italic-webfont.eot?#iefix') format('embedded-opentype'), url('./webfonts/leaguegothic-italic-webfont.woff') format('woff'), url('./webfonts/leaguegothic-italic-webfont.ttf') format('truetype'), url('./webfonts/leaguegothic-italic-webfont.svg#league_gothic_italicregular') format('svg');
     font-weight: normal;
     font-style: italic;
-}
+}*/
 
 
 /* Condensed */
 
-@font-face {
+/*@font-face {
     font-family: 'League Gothic Condensed';
     src: url('./webfonts/leaguegothic-condensed-regular-webfont.eot');
     src: url('./webfonts/leaguegothic-condensed-regular-webfont.eot?#iefix') format('embedded-opentype'), url('./webfonts/leaguegothic-condensed-regular-webfont.woff') format('woff'), url('./webfonts/leaguegothic-condensed-regular-webfont.ttf') format('truetype'), url('./webfonts/leaguegothic-condensed-regular-webfont.svg#league_gothic_condensed-Rg') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 
 /* Condensed Italic */
 
-@font-face {
+/*@font-face {
     font-family: 'League Gothic Condensed';
     src: url('./webfonts/leaguegothic-condensed-italic-webfont.eot');
     src: url('./webfonts/leaguegothic-condensed-italic-webfont.eot?#iefix') format('embedded-opentype'), url('./webfonts/leaguegothic-condensed-italic-webfont.woff') format('woff'), url('./webfonts/leaguegothic-condensed-italic-webfont.ttf') format('truetype'), url('./webfonts/leaguegothic-condensed-italic-webfont.svg#league_gothic_condensed_itaRg') format('svg');
     font-weight: normal;
     font-style: italic;
-}
+}*/
 
 html {
     font-size: 16px;
 }
 
 body {
-    font-family: 'League Gothic';
+    font-family: futura;
     line-height: 0.2rem;
     font-weight: 400;
 }
@@ -56,15 +56,14 @@ a {
     color: white;
 }
 
-
 .App-logo {
-    /*animation: App-logo-spin infinite 5s linear;*/
-    /*height: 60px;*/
+    animation: App-logo-spin infinite 25s;
+    /*height: 180px;*/
     margin-top: 80px;
 }
 
-.header-logo{
-    animation: App-logo-spin infinite 5s linear;
+.header-logo {
+    /*animation: App-logo-spin infinite 5s linear;*/
     height: 20px;
     color: #fff;
     background-color: #fff;
@@ -103,11 +102,80 @@ a {
 }
 
 @keyframes App-logo-spin {
-    from {
+    0.1% {
+        transform: rotate(1deg);
+    }
+    0.5% {
+        transform: rotate(-2deg);
+    }
+    10% {
+        transform: rotate(-1deg);
+    }
+    10.1% {
+        transform: rotate(1deg);
+    }
+    10.2% {
+        transform: rotate(-3deg);
+    }
+    10.3% {
         transform: rotate(0deg);
     }
-    to {
-        transform: rotate(360deg);
+    20% {
+        transform: rotate(-1deg);
+    }
+    /*20.5% {
+        transform: scale(200, 300);
+    }
+    20.6% {
+        transform: scale(1, 1);
+    }*/
+    30% {
+        transform: rotate(0deg);
+    }
+    30.1% {
+        transform: rotate(5deg);
+    }
+    30.2% {
+        transform: rotate(0deg);
+    }
+    30.3% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(1deg);
+    }
+    51% {
+        transform: rotate(-1deg);
+    }
+    50.2% {
+        transform: rotate(1deg);
+    }
+    50.3% {
+        transform: rotate(2deg);
+    }
+    51% {
+        transform: rotate(0deg);
+    }
+    70% {
+        transform: rotate(1deg);
+    }
+    70.1% {
+        transform: rotate(1deg);
+    }
+    90% {
+        transform: rotate(-0.1deg);
+    }
+    90.1% {
+        transform: rotate(-1deg);
+    }
+    90.2% {
+        transform: rotate(0deg);
+    }
+    90.3% {
+        transform: rotate(1deg);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }
 

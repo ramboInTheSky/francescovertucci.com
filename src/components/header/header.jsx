@@ -23,10 +23,10 @@ const theme = createMuiTheme({
 });
 
 const StyledHeader = styled('header') `
-    background-color: #222;
-    height: 40px;
+    background-color: #fff;
+    height: 80px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: nowrap;
     padding: 0.2rem 1rem;
@@ -38,25 +38,28 @@ const StyledHeader = styled('header') `
     border-bottom: 3px solid white;
 `
 const StyledList = styled('div')(({ viewportWidth }) => {
-  const small = viewportWidth <= DEVICES.tablet
+  const small = viewportWidth <= DEVICES.mobile
   return {
     width: small ? 270 : 'auto',
     height: '100%',
     // backgroundColor: small ? '#000' : 'transparent',
     lineHeight: '2.5rem',
     display: 'flex',
+    margin: 'auto',
     flexDirection: small ? 'column' : 'row',
     fontSize: '1.8rem',
     a: {
-      color: small ? '#000' : '#fff',
+      color: small ? '#000' : '#000',
       paddingLeft: 10,
+      fontSize: small ? 'initial' : '16px'
     }
   }
 })
 
 const StyledH1 = styled('h1')(props => ({
   fontSize: '1.8rem',
-  fontWeight: 400
+  fontWeight: 400,
+  color: 'black'
 }))
 
 const styles = {
@@ -112,7 +115,7 @@ class HeaderComponent extends React.Component {
           FRANCESCO VERTUCCI
           </StyledH1>
         {
-          viewportWidth <= DEVICES.tablet ?
+          viewportWidth <= DEVICES.mobile ?
             <MuiThemeProvider theme={theme}>
               <Fragment>
                 <Button className={classes.button} onClick={toggleDrawer(true)}>Menu</Button>
