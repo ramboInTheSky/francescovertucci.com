@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import styled, { css } from 'react-emotion'
+import logo from '../../fv_we.svg';
 import { DEVICES } from '../../constants'
 
-const logo = 'http://www.francescovertucci.com/images/logo.png'
 
 const theme = createMuiTheme({
   overrides: {
@@ -84,23 +84,33 @@ class HeaderComponent extends React.Component {
     });
   };
 
+  categoryHandler(item) { 
+    this.props.setPage(2)
+    this.props.filterElements(item)
+  }
+
   render() {
-    const { classes, filterElements, filter, viewportWidth, categories } = this.props;
+    const categoryHandler = this.categoryHandler.bind(this)
+    const { classes, filterElements, filter, viewportWidth, categories, setPage, page } = this.props;
     const toggleDrawer = this.toggleDrawer.bind(this)
 
     const sideList = (
       <StyledList viewportWidth={viewportWidth}>
-        <a href="/portfolio_francesco_vertucci.pdf">BIOGRAPHY</a>
-        <Divider />
+        <a href="#" onClick={() => setPage(1)} className={`${page == 1 ? 'selected' : ''}`}>HOME</a>
         {categories.map((item) =>
-          <a key={item} href="#" className={`${item == filter ? 'selected' : ''}`} onClick={() => filterElements(item)}> {item.toUpperCase()}</a>
+          <a key={item} href="#" className={`${page == 2 && item === filter? 'selected' : ''}`} onClick={() => categoryHandler(item)}> {item.toUpperCase()}</a>
         )}
+        <Divider />
+        <a href="/portfolio_francesco_vertucci.pdf">BIOGRAPHY</a>
       </StyledList >
     );
 
     return (
       <StyledHeader >
-        <StyledH1>FRANCESCO VERTUCCI</StyledH1>
+        <StyledH1 onClick={() => setPage(1)}>
+          {/*<img src={logo} className="header-logo" alt="logo" />*/}
+          FRANCESCO VERTUCCI
+          </StyledH1>
         {
           viewportWidth <= DEVICES.tablet ?
             <MuiThemeProvider theme={theme}>

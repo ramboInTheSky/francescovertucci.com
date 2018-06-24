@@ -7,6 +7,7 @@ import Tiles from './Tiles'
 import { Header } from './components/header'
 import styled, { css } from 'react-emotion'
 import Measure from 'react-measure';
+import logo from './fv_we.svg';
 
 const containerClass = css`
   text-align: center;
@@ -26,9 +27,10 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      filter: 'illustrations',
+      filter: 'portfolio',
       width: -1,
-      categories: Object.keys(getCategories())
+      categories: Object.keys(getCategories()),
+      page: 1
     }
   }
 
@@ -38,19 +40,30 @@ class App extends Component {
     })
   }
 
+  setPage(page) {
+    this.setState({ page })
+  }
+
   render() {
-    const { filter, width, categories } = this.state
+    const { filter, width, categories, page } = this.state
     const filterElements = this.filterElements.bind(this)
+    const setPage = this.setPage.bind(this)
     return (
       <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
         {
           ({ measureRef }) =>
             <div className={containerClass} ref={measureRef}>
-              <Header viewportWidth={width} filter={filter} categories={categories} filterElements={filterElements} />
+              <Header viewportWidth={width} filter={filter} categories={categories} filterElements={filterElements} page={page} setPage={setPage} />
               <MainSectionNode>
-                <Tiles viewportWidth={width} images={images.filter((image) =>
-                  image.category === filter
-                )} />
+                {page == 2 ?
+                  <Tiles viewportWidth={width} images={images.filter((image) =>
+                    image.category === filter
+                  )} />
+                  :
+                  <div>
+                    <img src={logo} className="App-logo" alt="logo" />
+                  </div>
+                }
               </MainSectionNode>
             </div>
         }
