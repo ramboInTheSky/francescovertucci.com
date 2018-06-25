@@ -9,6 +9,7 @@ import styled, { css } from 'react-emotion'
 import Measure from 'react-measure';
 import logo from './fv_we.svg';
 import background from './graphic_web_resume.png';
+import backgroundPortrait from './graphic_web_portrait.png';
 
 const containerClass = css`
   text-align: center;
@@ -21,23 +22,24 @@ const MainSectionNode = styled('div') `
 
 const superLogo = css`
   animation: App-logo-spin infinite 25s;
-  margin-top: 10%;
-  height: 238px;
+  margin-top: 20vh;
+  height: 220px;
   
 `
 
 const backgroundClass = css`
-  position: relative;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background-image: url(${background});
   background-repeat: no-repeat;
   background-position: center;
-  height: 1000px;
-  margin-top: 100px;
   background-size: 100%;
-  height: 840px;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
 `
 // background-image: url(${background});
 //   background-position: center;
