@@ -8,14 +8,42 @@ import { Header } from './components/header'
 import styled, { css } from 'react-emotion'
 import Measure from 'react-measure';
 import logo from './fv_we.svg';
+import background from './graphic_web_resume.png';
 
 const containerClass = css`
   text-align: center;
+
 `
-const MainSectionNode = styled('section') `
-  padding-top: 50px;
+const MainSectionNode = styled('div') `
+    display: flex;
+    flex-direction: column;
 `
 
+const superLogo = css`
+  animation: App-logo-spin infinite 25s;
+  margin-top: 10%;
+  height: 238px;
+  
+`
+
+const backgroundClass = css`
+  position: relative;
+  background-image: url(${background});
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 1000px;
+  margin-top: 100px;
+  background-size: 100%;
+  height: 840px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`
+// background-image: url(${background});
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background - size: cover;
+  
 const getCategories = () => {
   return images.reduce((acc, current) => {
     acc[current.category] = false
@@ -29,6 +57,7 @@ class App extends Component {
     this.state = {
       filter: 'portfolio',
       width: -1,
+      height: -1,
       categories: Object.keys(getCategories()),
       page: 1
     }
@@ -60,8 +89,9 @@ class App extends Component {
                     image.category === filter
                   )} />
                   :
-                  <div>
-                    <img src={logo} className="App-logo" alt="logo" />
+                  <div className={backgroundClass}>
+                    {/*<img src={background} className={backgroundClass} alt="background" />*/}
+                    <img src={logo} className={superLogo} alt="logo" />
                   </div>
                 }
               </MainSectionNode>

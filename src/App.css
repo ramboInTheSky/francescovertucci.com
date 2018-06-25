@@ -49,6 +49,7 @@ body {
     font-family: futura;
     line-height: 0.2rem;
     font-weight: 400;
+    height: 100%;
 }
 
 a {
@@ -57,9 +58,9 @@ a {
 }
 
 .App-logo {
-    animation: App-logo-spin infinite 25s;
+    /*animation: App-logo-spin infinite 25s;*/
     /*height: 180px;*/
-    margin-top: 80px;
+    /*margin-top: 80px;*/
 }
 
 .header-logo {
